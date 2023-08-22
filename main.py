@@ -1,16 +1,17 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+import telegram
+import asyncio
+import os
+import openai
+from config import BOT_TOKEN, API, GROUP_CHAT_ID
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+# send message from bot to chat_id
+# https://api.telegram.org/bot[TOKEN]/sendMessage?chat_id=[CHAT_ID]&text=[MY_MESSAGE_TEXT]
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+async def send_message():
+    message_text = "Message"
+    bot = telegram.Bot(token=BOT_TOKEN)
+    # await bot.send_message(chat_id=groupChat_id, text="New message")
+    await bot.sendPhoto(GROUP_CHAT_ID, photo=open('img/idol.jpg','rb'), caption=message_text)
+# Chạy coroutine trong event loop
+
