@@ -11,7 +11,8 @@ from config import BOT_TOKEN, API, GROUP_CHAT_ID
 async def send_message():
     message_text = "Message"
     bot = telegram.Bot(token=BOT_TOKEN)
-    # await bot.send_message(chat_id=groupChat_id, text="New message")
-    await bot.sendPhoto(GROUP_CHAT_ID, photo=open('img/idol.jpg','rb'), caption=message_text)
-# Chạy coroutine trong event loop
+    await bot.send_message(chat_id= GROUP_CHAT_ID, text="New message")
+    # await bot.sendPhoto(GROUP_CHAT_ID, photo=open('img/idol.jpg','rb'), caption=message_text)
 
+if __name__ == '__main__':
+    asyncio.run(send_message())
