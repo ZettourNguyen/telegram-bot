@@ -1,9 +1,7 @@
-from config import BOT_TOKEN, API, GROUP_CHAT_ID
+from config import BOT_TOKEN, API, GROUP_CHAT_ID, THAO_ID
 from commandHandler import start, help_command, echo
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
-from telegram import Update
-
-
+from telegram import Update, Bot
 
 
 def main() -> None:
@@ -14,11 +12,9 @@ def main() -> None:
     # on different commands - answer in Telegram
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("help", help_command))
+    application.add_handler(CommandHandler("help3", help_command))
 
-    # on non command i.e message - echo the message on Telegram
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, echo))
-
-    # Run the bot until the user presses Ctrl-C
     application.run_polling(allowed_updates=Update.ALL_TYPES)
 
 if __name__ == '__main__':
