@@ -3,6 +3,9 @@
 # from telegram import Update, BotCommand, Bot
 # import asyncio
 #
+
+# Set bot_command without botFather
+
 # bot = Bot(BOT_TOKEN)
 # async def setcommand():
 #     application = Application.builder().token(BOT_TOKEN).build()
